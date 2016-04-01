@@ -7,6 +7,7 @@ using std::string;
 class Forest
 {
 public:
+	Forest();
 	Forest(string newLocation, string newDayTime, string newWeather,SimpleTree newTree);
 
 	void SetTreeLocation(string);

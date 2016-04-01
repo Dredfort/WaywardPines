@@ -5,7 +5,7 @@ using std::string;
 class SimpleTree
 {
 public:
-	SimpleTree(string newName,string newLiveState);
+	SimpleTree(string newName);
 
 	void SetTreeName(string);
 	string GetTreeName();

@@ -20,16 +20,26 @@ int main()
 	cout << "\nWhat kind of tree did you like to spawn?: ";
 	cin >> TreeName;
 
-	//SimpleTree SomeTree = new TreeToSpawn();
-	//TreeToSpawn().SetTreeName(TreeName);
-	Forest cForest(locationName,"day",Weather, SimpleTree(TreeName,"born"));
+	
+	Forest cForest(locationName, "day", Weather, SimpleTree(TreeName));
+	SimpleTree* ptrTree = &cForest.GetCurrentTree();
 
-	cout << "In " << cForest.GetTreeLocation() << " was born " << cForest.GetCurrentTree().GetTreeName();
-	cout << "In " << cForest.GetTreeLocation() << " they was "<<cForest.GetCurrentTree().GetTreeState();
-	//cout<<" in "<< cForest.
+	ptrTree->SetTreeState("Born");
+	
+	ptrTree->SetTreeName(TreeName);
+
+	cout << "In " << cForest.GetTreeLocation() << " was born " << ptrTree->GetTreeName();
+	cout << "\nIn " << cForest.GetTreeLocation() << " they was " << ptrTree->GetTreeState();
+	cout << "\nin a " << cForest.GetDayTime() << " time and in a ";
+	cForest.SetDayTime("night");
+	cout << cForest.GetDayTime() << " time they was ";
+	ptrTree->SetTreeState(("slender"));
+	cout << ptrTree->GetTreeState() << " and ";
+	ptrTree->SetTreeState(" beautiful ");
+	cout << ptrTree->GetTreeState() << " they was.";
 
 	cin >> locationName;
-	
+
 
 	return 0;
 }

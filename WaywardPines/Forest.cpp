@@ -7,6 +7,7 @@ using std::string;
 Forest::Forest(string newLocation, string newDayTime, string newWeather, SimpleTree newTree)
 	:Location(newLocation),DayTime(newDayTime),CurrentWeather(newWeather),CurrentTree(newTree)
 {	
+	CurrentTree = newTree;
 }
 
 void Forest::SetWeather(string newWether)

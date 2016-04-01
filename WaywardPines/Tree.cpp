@@ -3,10 +3,10 @@
 using std::string;
 
 
-SimpleTree::SimpleTree(string newName, string newLiveState)
-	:strName(newName),strLiveState(newLiveState)
+SimpleTree::SimpleTree(string newName)
+	:strName(newName)
 {
-
+	strName = newName;
 }
 
 void SimpleTree::SetTreeName(string newName)
