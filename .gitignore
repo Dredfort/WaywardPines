@@ -4,6 +4,7 @@
 *.o
 *.obj
 
+
 # Precompiled Headers
 *.gch
 *.pch
@@ -77,3 +78,13 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+WaywardPines/WaywardPines.vcxproj.user
+WaywardPines/WaywardPines.vcxproj.filters
+WaywardPines/WaywardPines.vcxproj
+WaywardPines/Debug/vc140.idb
+WaywardPines/Debug/
+WaywardPines.VC.opendb
+Debug/WaywardPines.ilk
+.vs/WaywardPines/v14/.suo
+.vs/WaywardPines/v14/.suo
+WaywardPines.sdf
