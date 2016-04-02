@@ -8,6 +8,7 @@ Forest::Forest(string newLocation, string newDayTime, string newWeather, SimpleT
 	:Location(newLocation),DayTime(newDayTime),CurrentWeather(newWeather),CurrentTree(newTree)
 {	
 	CurrentTree = newTree;
+	
 }
 
 void Forest::SetWeather(string newWether)
@@ -48,6 +49,13 @@ void Forest::SetDayTime(string newDayTime)
 string Forest::GetDayTime()
 {
 	return DayTime;
+}
+
+void Forest::SpawnTree()
+{
+	//SimpleTree Spawner = new SimpleTree;
+	
+
 }
 
 Forest::~Forest()

@@ -24,7 +24,8 @@ int main()
 	Forest cForest(locationName, "day", Weather, SimpleTree(TreeName));
 	SimpleTree* ptrTree = &cForest.GetCurrentTree();
 
-	ptrTree->SetTreeState("Born");
+	//ptrTree->SetTreeState("Born");
+	ptrTree->SetTreeStateEnum(SimpleTree::eTreeState::grow);
 	
 	ptrTree->SetTreeName(TreeName);
 

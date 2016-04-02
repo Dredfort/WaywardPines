@@ -22,6 +22,10 @@ public:
 	void SetCurrentTree(SimpleTree newTree);
 	SimpleTree GetCurrentTree();
 
+	SimpleTree* TreeArr[10];
+
+	void SpawnTree();
+
 	~Forest();	
 private:	
 	string CurrentWeather;

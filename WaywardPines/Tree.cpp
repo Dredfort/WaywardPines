@@ -29,6 +29,22 @@ string SimpleTree::GetTreeState()
 	return strLiveState;
 }
 
+
+void SimpleTree::SetTreeStateEnum(eTreeState state)
+{
+	switch (state)
+	{
+	case SimpleTree::eTreeState::born:
+		strLiveState = "born";
+		break;
+	case SimpleTree::eTreeState::grow:
+		strLiveState = "grow";
+		break;
+	default:
+		break;
+	}
+}
+
 SimpleTree::~SimpleTree()
 {
 }
