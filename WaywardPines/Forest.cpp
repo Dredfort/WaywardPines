@@ -1,22 +1,39 @@
 #include "Forest.h"
-#include "Tree.h"
-
+#include "SimpleTree.h"
+#include <iostream>
 #include <string>
 using std::string;
+using std::cout;
 
-Forest::Forest(string newLocation, string newDayTime, string newWeather, SimpleTree newTree)
-	:Location(newLocation),DayTime(newDayTime),CurrentWeather(newWeather),CurrentTree(newTree)
+Forest::Forest(string newLandsName, SimpleTree newTree)
+	:LandsName(newLandsName),CurrentTree(newTree)
 {	
 	CurrentTree = newTree;
-	
+	TreeArr.push_back(&CurrentTree);	
 }
 
-void Forest::SetWeather(string newWether)
+void Forest::SetYearTime(eYearTime newYearTime)
 {
-	CurrentWeather = newWether;
+	switch (newYearTime)
+	{
+	case Forest::eYearTime::Winter:
+		CurrentWeather = "Winter";
+		break;
+	case Forest::eYearTime::Spring:
+		CurrentWeather = "Spring";
+		break;
+	case Forest::eYearTime::Summer:
+		CurrentWeather = "Summer";
+		break;
+	case Forest::eYearTime::Fall:
+		CurrentWeather = "Fall";
+		break;
+	default:
+		break;
+	}	
 }
 
-string Forest::GetWeather()
+string Forest::GetYearTime()
 {
 	return CurrentWeather;
 }
@@ -26,24 +43,38 @@ void Forest::SetCurrentTree(SimpleTree newTree)
 	CurrentTree = newTree;
 }
 
-SimpleTree Forest::GetCurrentTree()
-{
-	return CurrentTree;
+SimpleTree* Forest::GetCurrentTree(int i){
+	
+	SimpleTree* TreeFromArr = TreeArr.at(i);// TreeArr[i];
+
+	return TreeFromArr;
 }
 
-void Forest::SetTreeLocation(string newLocation)
-{
-	Location = newLocation;
+void Forest::SetLandsName(string newLandsName)
+{ 
+	//BaseLand::SetLandsName(newLandsName);
+	LandsName = newLandsName;
 }
 
-string Forest::GetTreeLocation()
+string Forest::GetLandsName()
 {
-	return Location;
+	return LandsName;
 }
 
-void Forest::SetDayTime(string newDayTime)
+void Forest::SetDayTime(eDaytime newDayTaime/*=eDaytime::Day*/)
 {
-	DayTime = newDayTime;
+	//DayTime = newDayTaime;
+	switch (newDayTaime)
+	{
+	case Forest::eDaytime::Day:
+		DayTime = "Day";
+		break;
+	case Forest::eDaytime::Night:
+		DayTime = "Night";
+		break;
+	default:
+		break;
+	}
 }
 
 string Forest::GetDayTime()
@@ -53,11 +84,18 @@ string Forest::GetDayTime()
 
 void Forest::SpawnTree()
 {
-	//SimpleTree Spawner = new SimpleTree;
-	
-
+	/*SimpleTree* Spawner = new SimpleTree("");
+	if (Spawner)
+	{
+		Spawner->SetTreeName("");
+		TreeArr.push_back(Spawner);
+		cout << "\nin the forest was grow tree...\n";
+	}*/
 }
 
 Forest::~Forest()
 {
+	
+	TreeArr.clear();
+	cout << "\nLands was disappear..";
 }
