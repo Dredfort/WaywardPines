@@ -1,8 +1,6 @@
-#include "SimpleTree.h"
+#include "Tree.h"
 #include <string>
-#include <iostream>
 using std::string;
-using std::cout;
 
 
 SimpleTree::SimpleTree(string newName)
@@ -31,18 +29,16 @@ string SimpleTree::GetTreeState()
 	return strLiveState;
 }
 
+
 void SimpleTree::SetTreeStateEnum(eTreeState state)
 {
 	switch (state)
 	{
-	case SimpleTree::eTreeState::Born:
+	case SimpleTree::eTreeState::born:
 		strLiveState = "born";
 		break;
-	case SimpleTree::eTreeState::Grow:
+	case SimpleTree::eTreeState::grow:
 		strLiveState = "grow";
-		break;
-	case SimpleTree::eTreeState::CutDown:
-		this->~SimpleTree();
 		break;
 	default:
 		break;
@@ -51,5 +47,4 @@ void SimpleTree::SetTreeStateEnum(eTreeState state)
 
 SimpleTree::~SimpleTree()
 {
-	cout << "\nTree was cut down...\n";
 }
