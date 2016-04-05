@@ -1,39 +1,35 @@
 #pragma once
 
 #include <string>
-#include "SimpleTree.h"
-#include <vector>
-#include "IBaseLands.h"
+#include "Tree.h"
 using std::string;
 
-
-class Forest : public IBaseLand
+class Forest
 {
 public:
 	Forest();
-	Forest(string newLandsName, string newDayTime, string newWeather,SimpleTree newTree);
+	Forest(string newLocation, string newDayTime, string newWeather,SimpleTree newTree);
 
-	virtual void SetLandsName(string newLandsName);
-	virtual string GetLandsName();
+	void SetTreeLocation(string);
+	string GetTreeLocation();
 
-	void SetDayTime(eDaytime newDayTaime=eDaytime::Day);
+	void SetDayTime(string);
 	string GetDayTime();
 
-	void SetYearTime(eYearTime newYearTime=eYearTime::Summer);
-	string GetYearTime();
+	void SetWeather(string);
+	string GetWeather();
 
 	void SetCurrentTree(SimpleTree newTree);
-	SimpleTree GetCurrentTree(int i=0);
+	SimpleTree GetCurrentTree();
 
-	//const static int ArraySize = 10;
-	std::vector<SimpleTree*> TreeArr;	
+	SimpleTree* TreeArr[10];
 
 	void SpawnTree();
 
-	virtual ~Forest();
+	~Forest();	
 private:	
 	string CurrentWeather;
-	string LandsName;
+	string Location;
 	SimpleTree CurrentTree;
 	string DayTime;
 };
