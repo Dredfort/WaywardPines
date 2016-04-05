@@ -1,27 +1,24 @@
 #pragma once
 #include <string>
+#include "IBaseTree.h"
 
 using std::string;
 
-class SimpleTree
+class SimpleTree : public IBaseTree
 {
 public:
 	SimpleTree();
 	SimpleTree(string newName);
-
-	void SetTreeName(string);
+	
+	
+	void SetTreeName(string newName);
 	string GetTreeName();
 
 	void SetTreeState(string);
 	string GetTreeState();
+	void SetTreeStateEnum(eTreeState state=eTreeState::Born);
 
-	enum class eTreeState { 
-	born,
-	grow
-	};
-	void SetTreeStateEnum(eTreeState state);
-
-	~SimpleTree();
+	virtual ~SimpleTree();
 private:
 	
 	
