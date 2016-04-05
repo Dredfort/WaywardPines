@@ -2,7 +2,7 @@
 #include <string>
 
 #include "Forest.h"
-#include "Tree.h"
+#include "SimpleTree.h"
 
 using namespace std;
 
@@ -22,23 +22,27 @@ int main()
 
 	
 	Forest cForest(locationName, "day", Weather, SimpleTree(TreeName));
-	SimpleTree* ptrTree = &cForest.GetCurrentTree();
+	cForest.SpawnTree();
+	SimpleTree* ptrTree = &cForest.GetCurrentTree(); 
 
-	//ptrTree->SetTreeState("Born");
-	ptrTree->SetTreeStateEnum(SimpleTree::eTreeState::grow);
+	
+	ptrTree->SetTreeStateEnum(SimpleTree::eTreeState::Grow);
 	
 	ptrTree->SetTreeName(TreeName);
 
-	cout << "In " << cForest.GetTreeLocation() << " was born " << ptrTree->GetTreeName();
-	cout << "\nIn " << cForest.GetTreeLocation() << " they was " << ptrTree->GetTreeState();
+	cout << "In " << cForest.GetLandsName() << " was born " << ptrTree->GetTreeName();
+	cout << "\nIn " << cForest.GetLandsName() << " they was " << ptrTree->GetTreeState();
+	cForest.SetDayTime(Forest::eDaytime::Day);
 	cout << "\nin a " << cForest.GetDayTime() << " time and in a ";
-	cForest.SetDayTime("night");
+	cForest.SetDayTime(Forest::eDaytime::Night);
 	cout << cForest.GetDayTime() << " time they was ";
 	ptrTree->SetTreeState(("slender"));
 	cout << ptrTree->GetTreeState() << " and ";
 	ptrTree->SetTreeState(" beautiful ");
 	cout << ptrTree->GetTreeState() << " they was.";
 
+	cForest.SpawnTree();
+	ptrTree->SetTreeStateEnum(SimpleTree::eTreeState::CutDown);
 	cin >> locationName;
 
 
