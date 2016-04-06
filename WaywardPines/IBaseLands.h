@@ -11,6 +11,7 @@ public:
 		Day,
 		Night
 	};
+
 	enum class eYearTime
 	{
 		Winter,

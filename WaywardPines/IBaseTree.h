@@ -13,6 +13,7 @@ public:
 		Beautiful,
 		CutDown
 	};	
+
 	virtual void SetTreeName(string newName) = 0;
 	virtual string GetTreeName() = 0;
 

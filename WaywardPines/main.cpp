@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
 	string locationName;
-	string Weather;
+	int TreesQ = 1;
 	string TreeName;
 
 

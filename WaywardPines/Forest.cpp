@@ -84,13 +84,14 @@ string Forest::GetDayTime()
 
 void Forest::SpawnTree()
 {
-	/*SimpleTree* Spawner = new SimpleTree("");
+	SimpleTree* Spawner = new SimpleTree("");
 	if (Spawner)
 	{
 		Spawner->SetTreeName("");
 		TreeArr.push_back(Spawner);
-		cout << "\nin the forest was grow tree...\n";
-	}*/
+		cout << "\n";
+		cout << " in the forest was grow tree...\n";
+	}
 }
 
 Forest::~Forest()
