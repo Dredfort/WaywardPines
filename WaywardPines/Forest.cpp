@@ -5,11 +5,12 @@
 using std::string;
 using std::cout;
 
-Forest::Forest(string newLandsName, SimpleTree newTree)
-	:LandsName(newLandsName),CurrentTree(newTree)
+Forest::Forest(string newLandsName)
+	:LandsName(newLandsName)
 {	
-	CurrentTree = newTree;
-	TreeArr.push_back(&CurrentTree);	
+	//CurrentTree = newTree;
+	//TreeArr.push_back(&CurrentTree);
+	//SpawnTree(1);
 }
 
 void Forest::SetYearTime(eYearTime newYearTime)
@@ -38,9 +39,9 @@ string Forest::GetYearTime()
 	return CurrentWeather;
 }
 
-void Forest::SetCurrentTree(SimpleTree newTree)
+void Forest::SetCurrentTree(int newTree)
 {
-	CurrentTree = newTree;
+	CurrentTree = TreeArr.at(newTree);
 }
 
 SimpleTree* Forest::GetCurrentTree(int i){
@@ -82,21 +83,22 @@ string Forest::GetDayTime()
 	return DayTime;
 }
 
-void Forest::SpawnTree()
+void Forest::SpawnTree(int quantity)
 {
-	SimpleTree* Spawner = new SimpleTree("");
-	if (Spawner)
+	for (int i = 0; i < quantity; i++)
 	{
-		Spawner->SetTreeName("");
-		TreeArr.push_back(Spawner);
-		cout << "\n";
-		cout << " in the forest was grow tree...\n";
+		TreeArr.push_back(new SimpleTree(""));
 	}
 }
 
-Forest::~Forest()
+void Forest::CutDownTree(int i)
 {
-	
+	TreeArr.at(i)->~SimpleTree();
+	TreeArr.erase(TreeArr.begin() + i);
+}
+
+Forest::~Forest()
+{	
 	TreeArr.clear();
 	cout << "\nLands was disappear..";
 }

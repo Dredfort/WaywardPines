@@ -54,7 +54,8 @@ void SimpleTree::SetTreeState(eTreeState state)
 		break;
 	}
 	case SimpleTree::eTreeState::CutDown:
-	{	this->~SimpleTree();
+	{	
+		///this->~SimpleTree();
 		break;
 	}
 	default:

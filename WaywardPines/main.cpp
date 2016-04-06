@@ -19,12 +19,11 @@ int main()
 	cin >> TreeName;
 
 	
-	Forest cForest(locationName, SimpleTree(TreeName));
-	SimpleTree* ptrTree1 = cForest.GetCurrentTree();
+	Forest cForest(locationName);
+	cForest.SpawnTree(1);
+	SimpleTree* ptrTree1 = cForest.GetCurrentTree(0);
 
-	cForest.SpawnTree();	
 
-	//cForest.GetCurrentTree().SetTreeState(IBaseTree::eTreeState::Born);
 	ptrTree1->SetTreeState(IBaseTree::eTreeState::Grow);
 	
 	ptrTree1->SetTreeName(TreeName);
@@ -34,18 +33,15 @@ int main()
 	cForest.SetDayTime(Forest::eDaytime::Day);
 	cout << "\nin a " << cForest.GetDayTime() << " time and in a ";
 	cForest.SetDayTime(Forest::eDaytime::Night);
-	cout << cForest.GetDayTime() << " time,\n they was ";
-	//ptrTree1->SetTreeState(("slender"));
+	cout << cForest.GetDayTime() << " time,\n they was ";	
 	ptrTree1->SetTreeState(SimpleTree::eTreeState::Slender);
 	cout << ptrTree1->GetTreeState() << " and ";
-	//ptrTree1->SetTreeState(" beautiful ");
 	ptrTree1->SetTreeState(SimpleTree::eTreeState::Beautiful);
 	cout << ptrTree1->GetTreeState() << " they was.\n";
 
+	cout << cForest.TreeArr.size();	
+	cForest.CutDownTree(0);
 	cout << cForest.TreeArr.size();
-	ptrTree1->SetTreeState(SimpleTree::eTreeState::CutDown);
-	cout << cForest.TreeArr.size();
-
 	cin >> locationName;
 
 

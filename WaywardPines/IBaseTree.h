@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
+#include <iostream>
 using std::string;
+using std::cout;
 
 class IBaseTree
 {
@@ -20,7 +22,7 @@ public:
 	virtual string GetTreeState() = 0;
 	virtual void SetTreeState(eTreeState state) = 0;
 
-	virtual ~IBaseTree() {};
+	virtual ~IBaseTree() { cout << "\n i dtor \n";};
 private:
 
 };

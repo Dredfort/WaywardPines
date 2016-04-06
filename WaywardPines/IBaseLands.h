@@ -29,7 +29,7 @@ public:
 	virtual void SetCurrentTree() {};
 	virtual void GetCurrentTree() {};
 
-	void SpawnTree() {};
+	void SpawnTree(int quantity) {};
 	
 	//virtual ~IBaseLand() {};
 private:
